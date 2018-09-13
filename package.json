@@ -1,0 +1,67 @@
+{
+  "name": "typescript-npm-starter",
+  "version": "0.1.0",
+  "description": "A quick start for NPM projects with Typescript sources.",
+  "main": "js/index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^10.9.4",
+    "gh-pages": "^1.2.0",
+    "mocha": "^5.2.0",
+    "npm-scripts-info": "^0.3.9",
+    "typescript": "^3.0.3"
+  },
+  "scripts": {
+    "help": "node tools/help.js",
+    "1-------------------------------------": "",
+    "?tsc" : "echo Compile typescript sources to JS files and typescript definitions.",
+    "tsc" : "tsc",
+    "2-------------------------------------": "",
+    "?test": "echo Run unit tests on compiled files.",
+    "test": "./node_modules/mocha/bin/mocha",
+    "3-------------------------------------": "",
+    "?dev" : "echo Compile typescript files and run tests.",
+    "dev": "npm run tsc && npm test",
+    "4-------------------------------------": "",
+    "?doc:generate": "echo Generate HTML documentation based on typescript sources. Will be deployed to docs/ folder. This folder is not pushed to git or npm.",
+    "doc:generate": "typedoc --out docs --theme minimal src/index.ts",
+    "?doc:publish": "echo Will publish generated HTML documentation to GitHub pages, using credentials from current git repo. Will only work if you are working with GitHub. Documentation will be visible online here : https://{organisation-name}.github.io/{repo-name}/",
+    "doc:publish": "gh-pages -d docs",
+    "?doc": "echo Will generate and publish documentation to GitHub pages",
+    "doc": "npm run doc:generate && npm run doc:publish",
+    "5-------------------------------------": "",
+    "?clean" : "echo Remove all generated files like compiled JS files, typescript definitions and documentation.",
+    "clean": "rm -f js/**.js && rm -f js/**.d.ts",
+    "6-------------------------------------": "",
+    "?reinstall": "echo Remove and re-install all node modules.",
+    "reinstall": "rm -rf node_modules/ package-lock.json && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solid-js/typescript-npm-starter.git"
+  },
+  "keywords": [
+    "typescript",
+    "npm",
+    "starter",
+    "solidify",
+    "solidjs",
+    "solid",
+    "node",
+    "libs",
+    "lib",
+    "libraries",
+    "package"
+  ],
+  "author": "Alexis Bouhet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/solid-js/typescript-npm-starter/issues"
+  },
+  "homepage": "https://github.com/solid-js/typescript-npm-starter#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  }
+}
