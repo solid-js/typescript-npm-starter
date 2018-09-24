@@ -20,8 +20,10 @@
     	"outDir": "./js",
 
 		// Compile typescript files to ready-to-use es next modules
-		"module": "commonjs",
-		"target": "ES6",
+		//"module": "commonjs",
+    	//"target": "ES6",
+    	"module": "esnext",
+    	"target": "esnext",
 		"moduleResolution": "node",
 
 		// Create d.ts files from typescript files
@@ -56,6 +58,7 @@
 
 		// Allow import as default without default export declared
 		"allowSyntheticDefaultImports" : true,
+		"esModuleInterop" : true,
 
 
 		// --------------------------------------------------------------------- LOGGING

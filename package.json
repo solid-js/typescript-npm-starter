@@ -3,38 +3,53 @@
   "version": "0.1.0",
   "description": "A quick start for NPM projects with Typescript sources.",
   "main": "js/index.js",
+  "module": "js/index.js",
+  "typings": "js/index.d.ts",
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^10.9.4",
     "gh-pages": "^1.2.0",
+    "husky": "^1.0.0-rc.14",
     "mocha": "^5.2.0",
     "npm-scripts-info": "^0.3.9",
     "typescript": "^3.0.3"
   },
   "scripts": {
     "help": "node tools/help.js",
-    "1-------------------------------------": "",
-    "?tsc" : "echo Compile typescript sources to JS files and typescript definitions.",
-    "tsc" : "tsc",
-    "2-------------------------------------": "",
+    "?setup" : "echo Setup package.json for your upcoming package.",
+    "setup" : "node tools/setup.js",
+    "1" : "",
+    "1-------------------------------------": " BUILD ",
+    "?build": "echo Compile typescript sources to JS files and typescript definitions.",
+    "build": "tsc",
+    "2" : "",
+    "2-------------------------------------": " UNIT TESTS ",
     "?test": "echo Run unit tests on compiled files.",
     "test": "./node_modules/mocha/bin/mocha",
-    "3-------------------------------------": "",
-    "?dev" : "echo Compile typescript files and run tests.",
-    "dev": "npm run tsc && npm test",
-    "4-------------------------------------": "",
+    "3" : "",
+    "3-------------------------------------": " DOCUMENTATION ",
     "?doc:generate": "echo Generate HTML documentation based on typescript sources. Will be deployed to docs/ folder. This folder is not pushed to git or npm.",
     "doc:generate": "typedoc --out docs --theme minimal src/index.ts",
     "?doc:publish": "echo Will publish generated HTML documentation to GitHub pages, using credentials from current git repo. Will only work if you are working with GitHub. Documentation will be visible online here : https://{organisation-name}.github.io/{repo-name}/",
     "doc:publish": "gh-pages -d docs",
     "?doc": "echo Will generate and publish documentation to GitHub pages",
     "doc": "npm run doc:generate && npm run doc:publish",
-    "5-------------------------------------": "",
-    "?clean" : "echo Remove all generated files like compiled JS files, typescript definitions and documentation.",
+    "4" : "",
+    "4-------------------------------------": " CLEANING ",
+    "?clean": "echo Remove all generated files like compiled JS files, typescript definitions and documentation.",
     "clean": "rm -f js/**.js && rm -f js/**.d.ts",
-    "6-------------------------------------": "",
+    "5" : "",
+    "5-------------------------------------": " PACKAGE TOOLS ",
     "?reinstall": "echo Remove and re-install all node modules.",
-    "reinstall": "rm -rf node_modules/ package-lock.json && npm i"
+    "reinstall": "rm -rf node_modules/ package-lock.json && npm i",
+    "?increment" : "echo Increment package.json version through CLI.",
+    "increment" : "node tools/increment",
+    "6" : "",
+    "6-------------------------------------": " HOOKS ",
+    "?pre-commit" : "echo Before commiting to Git, we clean, build and test everything. Package.json version is incremented through CLI.",
+    "pre-commit" : "npm run clean && npm run build && npm run test && npm run increment",
+    "?pre-push" : "echo Before pushing an update to Git, we generate and publish docs to gh-pages, then we publish to NPM.",
+    "pre-push" : "npm run doc && npm publish"
   },
   "repository": {
     "type": "git",
@@ -61,7 +76,8 @@
   "homepage": "https://github.com/solid-js/typescript-npm-starter#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "npm test"
+      "pre-commit": "npm run pre-commit",
+      "pre-push": "npm run pre-push"
     }
   }
 }
