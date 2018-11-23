@@ -17,7 +17,7 @@
 		// --------------------------------------------------------------------- OUTPUT
 
 		// Where js and d.ts file are created
-    	"outDir": "./js",
+    	"outDir": "./dist",
 
 		// Compile typescript files to ready-to-use es next modules
 		//"module": "commonjs",

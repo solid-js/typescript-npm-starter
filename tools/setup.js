@@ -1,0 +1,1 @@
+// TODO : Setup avec inquerer qui permet de changer quelques paramètres dans package.json
