@@ -1,8 +1,8 @@
 {
-  "app.js": "typescript-npm-starter/static/js/app.45039620.js",
-  "hello.js": "typescript-npm-starter/static/js/hello.4bb66d1c.js",
-  "runtime~app.js": "typescript-npm-starter/static/js/runtime~app.1e2f716e6ea2fd4de924.js",
-  "vendors.js": "typescript-npm-starter/static/js/vendors.80f573a0.js",
-  "static/js/4.9ef6349f.js": "typescript-npm-starter/static/js/4.9ef6349f.js",
-  "index.html": "typescript-npm-starter/index.html"
+  "app.js": "/typescript-npm-starter/static/js/app.40014b71.js",
+  "hello.js": "/typescript-npm-starter/static/js/hello.4bb66d1c.js",
+  "runtime~app.js": "/typescript-npm-starter/static/js/runtime~app.cca90d63300b8d74def6.js",
+  "vendors.js": "/typescript-npm-starter/static/js/vendors.b3880eed.js",
+  "static/js/4.9ef6349f.js": "/typescript-npm-starter/static/js/4.9ef6349f.js",
+  "index.html": "/typescript-npm-starter/index.html"
 }
