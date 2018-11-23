@@ -41,7 +41,7 @@
     "?pre-commit": "echo Before commiting to Git, we clean, build and test everything. Package.json version is incremented through CLI.",
     "pre-commit": "npm run increment && npm run clean && npm run build && npm run test",
     "?pre-push": "echo Before pushing an update to Git, we generate and publish docs to gh-pages, then we publish to NPM.",
-    "pre-push": "npm run doc:publish && s=$( cat package.json | grep '\"name\"') && if [[ $s != *\"typescript-npm-starter\"* ]]; then; $(npm publish); fi;"
+    "pre-push": "npm run doc:publish && s=$( cat package.json | grep '\"name\"'); if [[ $s != *\"typescript-npm-starter\"* ]]; then $(npm publish); fi"
   },
   "repository": {
     "type": "git",
