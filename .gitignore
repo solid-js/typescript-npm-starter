@@ -1,4 +1,5 @@
 .DS_Store
+.docz
 node_modules/
 dist/
 docs/

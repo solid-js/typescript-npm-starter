@@ -1,5 +1,8 @@
 node_modules/
 
+# Compiled documentations or not included
+.docz
+
 # Do not send typescripts sources to NPM, we convert them to JS and d.ts files
 src/
 
