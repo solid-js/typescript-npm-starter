@@ -2,7 +2,6 @@
  * This file shows help message from command :
  * npm run help
  */
-
 const getScriptsInfo = require('npm-scripts-info');
 const readPkgUp = require('read-pkg-up');
 const chalk = require('chalk');

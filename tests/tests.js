@@ -4,8 +4,10 @@
  */
 const assert = require('assert');
 
-// TODO : Logs utils ?
-
+/**
+ * Create your lib's test here.
+ * You can use compiled js files.
+ */
 describe('Main test', () =>
 {
 	it('Should test this', done =>

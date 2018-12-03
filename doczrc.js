@@ -2,8 +2,9 @@
 // Getting base (repo name) from package.json
 const base = require(__dirname + '/tools/get-repo-base.js')('/');
 
-// With $ npm run doc:publish
-// Documentation will be deployed https://{organisation-name}.github.io/{repo-name}/
+// To deploy documentation to https://{organisation-name}.github.io/{repo-name}/
+// Run :
+// npm run doc:publish
 
 export default
 {
