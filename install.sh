@@ -1,12 +1,12 @@
 #!/bin/sh
 
-# curl https://raw.githubusercontent.com/solid-js/typescript-npm-starter/master/tools/install.sh | sh
+# curl https://raw.githubusercontent.com/solid-js/typescript-npm-starter/master/install.sh | sh
 
 inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 if [ ! "$inside_git_repo" ]; then
   echo "Please setup git repo in this folder first.";
   exit 1;
-else
+fi
 
 echo "Downloading typescript-npm-starter archive..."
 curl -L -sS https://github.com/solid-js/typescript-npm-starter/archive/master.zip > archive.zip
