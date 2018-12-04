@@ -35,9 +35,9 @@ echo ""
 
 # Install not dependencies
 echo "Installing node dependencies..."
-npm install --silent
+npm i &>/dev/null
 echo "Done !"
 echo ""
 
 # Continue setup with right privilege
-echo "> Please run $(tput bold)'node setup'$(tput sgr0) to continue."
+echo "Run $(tput bold)'node setup'$(tput sgr0) to continue."
