@@ -1,20 +1,19 @@
 {
-  "name": "typescript-npm-starter",
-  "version": "1.0.0",
-  "description": "A quick start for NPM projects with Typescript sources.",
+  "version": "0.1.0",
+  "description": "",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "typings": "dist/index.d.ts",
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^10.9.4",
-    "docz": "^0.12.12",
+    "@types/node": "^10.12.11",
+    "docz": "^0.12.13",
     "gh-pages": "^1.2.0",
-    "husky": "^1.0.0-rc.14",
-    "inquirer": "^6.2.0",
+    "husky": "^1.2.0",
+    "inquirer": "^6.2.1",
     "mocha": "^5.2.0",
     "npm-scripts-info": "^0.3.9",
-    "typescript": "^3.0.3"
+    "typescript": "^3.2.1"
   },
   "scripts": {
     "help": "node tools/help.js",
@@ -42,29 +41,6 @@
     "?pre-push": "echo Before pushing an update to Git, we generate and publish docs to gh-pages, then we publish to NPM.",
     "pre-push": "npm run doc:publish && s=$( cat package.json | grep '\"name\"'); if [[ $s != *\"typescript-npm-starter\"* ]]; then $(npm publish); fi"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/solid-js/typescript-npm-starter.git"
-  },
-  "keywords": [
-    "typescript",
-    "starter",
-    "npm",
-    "solid-js",
-    "solidjs",
-    "solid",
-    "node",
-    "libs",
-    "lib",
-    "libraries",
-    "package"
-  ],
-  "author": "Alexis Bouhet",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/solid-js/typescript-npm-starter/issues"
-  },
-  "homepage": "https://github.com/solid-js/typescript-npm-starter#readme",
   "husky": {
     "hooks": {
       "pre-commit": "npm run pre-commit",

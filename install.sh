@@ -1,18 +1,24 @@
 #!/bin/sh
 
+# How to install this script 
 # curl https://raw.githubusercontent.com/solid-js/typescript-npm-starter/master/install.sh | sh
 
+# Check if git repo was already setup
 inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 if [ ! "$inside_git_repo" ]; then
-  echo "Please setup git repo in this folder first.";
-  exit 1;
+	tput bold && tput setaf 7 && tput setab 1;
+	>&2 echo " Typescript-npm-starter needs to be installed in a git repository to be correctly configured. "
+	>&2 echo " Please setup git repo in this folder, before launching this install script. ";
+	exit 1;
 fi
 
+# Download archive as zip file
 echo "Downloading typescript-npm-starter archive..."
 curl -L -sS https://github.com/solid-js/typescript-npm-starter/archive/master.zip > archive.zip
 echo "Done !"
 echo ""
 
+# Unzip archive and install only required files
 echo "Installing archive..."
 unzip -q archive.zip
 rm archive.zip
@@ -25,7 +31,16 @@ rm -r typescript-npm-starter-master
 echo "Done !"
 echo ""
 
+# Install not dependencies
 echo "Installing node dependencies..."
 npm install
 echo "Done !"
 echo ""
+
+# Configuring package.json
+echo "Configure package.json :"
+npm init
+echo "Done !"
+echo ""
+
+npm run help
