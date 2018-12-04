@@ -1,8 +1,13 @@
 {
-  "app.js": "/typescript-npm-starter/static/js/app.b967cc0c.js",
-  "hello.js": "/typescript-npm-starter/static/js/hello.4bb66d1c.js",
-  "runtime~app.js": "/typescript-npm-starter/static/js/runtime~app.960ddfe5bb49078d495b.js",
-  "vendors.js": "/typescript-npm-starter/static/js/vendors.5dde0f5b.js",
-  "static/js/4.9ef6349f.js": "/typescript-npm-starter/static/js/4.9ef6349f.js",
-  "index.html": "/typescript-npm-starter/index.html"
+  "app.js": "/static/js/app.6966a755.js",
+  "app.js.map": "/static/js/app.a3630724dcdec4327ffb.js.map",
+  "hello.js": "/static/js/hello.c13e75ac.js",
+  "hello.js.map": "/static/js/hello.a3630724dcdec4327ffb.js.map",
+  "runtime~app.js": "/static/js/runtime~app.a3630724dcdec4327ffb.js",
+  "runtime~app.js.map": "/static/js/runtime~app.a3630724dcdec4327ffb.js.map",
+  "vendors.js": "/static/js/vendors.fe2ffe41.js",
+  "vendors.js.map": "/static/js/vendors.a3630724dcdec4327ffb.js.map",
+  "static/js/4.9ef6349f.js": "/static/js/4.9ef6349f.js",
+  "static/js/4.a3630724dcdec4327ffb.js.map": "/static/js/4.a3630724dcdec4327ffb.js.map",
+  "index.html": "/index.html"
 }
