@@ -1,5 +1,5 @@
 {
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -7,7 +7,8 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^10.12.11",
-    "docz": "^0.12.13",
+    "docsify": "^4.8.6",
+    "docsify-cli": "^4.3.0",
     "gh-pages": "^1.2.0",
     "husky": "^1.2.0",
     "mocha": "^5.2.0",
@@ -22,18 +23,16 @@
     "?test": "echo Run unit tests on compiled files.",
     "test": "mocha tests/tests.js",
     "2-------------------------------------": " CLEANING ",
-    "?clean": "echo Remove all generated files like compiled JS files, typescript definitions and documentation.",
-    "clean": "rm -f dist/**.js && rm -f dist/**.d.ts && rm -rf .docz",
+    "?clean": "echo Remove all generated files like compiled JS files and typescript definitions.",
+    "clean": "rm -f dist/**.js && rm -f dist/**.d.ts",
     "3-------------------------------------": " PACKAGE TOOLS ",
     "?reinstall": "echo Remove and re-install all node modules.",
     "reinstall": "rm -rf node_modules/ package-lock.json && npm i",
-    "?increment": "echo Increment package.json version through CLI.",
+    "?increment": "echo Increment package.json version. Append with semver argument (major|minor|patch).",
     "increment": "node tools/increment",
     "4-------------------------------------": " DOCUMENTATION ",
-    "?doc:dev": "echo Write package documentation and start integrated server.",
-    "doc:dev": "docz dev",
-    "?doc:publish": "echo Will generate and publish documentation to GitHub pages, using credentials from current git repo. Will only work if you are working with GitHub. Documentation will be visible online here : \nhttps://{organisation-name}.github.io/{repo-name}/",
-    "doc:publish": "docz build && gh-pages -d .docz/dist/"
+    "?doc": "echo Start documentation server.",
+    "doc": "docsify serve doc"
   },
   "husky": {
     "hooks": {

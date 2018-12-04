@@ -46,7 +46,7 @@ catch (e) { needsDoc = true }
 if (needsDoc)
 {
 	log('> Doc updated, regenerating and publishing to github.io ...');
-	exec('npm run doc:publish --silent', true);
+	exec('gh-pages -d doc', true);
 	log('> Done !');
 }
 

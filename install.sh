@@ -25,6 +25,7 @@ rm archive.zip
 rm -rf typescript-npm-starter-master/README.md
 rm -rf typescript-npm-starter-master/LICENSE
 rm -rf typescript-npm-starter-master/install.sh
+rm -rf typescript-npm-starter-master/doc
 mv typescript-npm-starter-master/* ./
 cat typescript-npm-starter-master/.gitignore >> .gitignore
 rm -r typescript-npm-starter-master
@@ -40,6 +41,12 @@ echo ""
 # Configuring package.json
 echo "Configure package.json :"
 npm init
+echo "Done !"
+echo ""
+
+# Init doc
+echo "Initialising documentation ..."
+node node_modules/docsify-cli/bin/docsify init -l doc
 echo "Done !"
 echo ""
 
