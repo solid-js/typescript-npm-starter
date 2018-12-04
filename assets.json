@@ -1,13 +1,13 @@
 {
-  "app.js": "/static/js/app.6966a755.js",
-  "app.js.map": "/static/js/app.a3630724dcdec4327ffb.js.map",
+  "app.js": "/static/js/app.b26bbbfd.js",
+  "app.js.map": "/static/js/app.5d40e80b46113e131240.js.map",
   "hello.js": "/static/js/hello.c13e75ac.js",
-  "hello.js.map": "/static/js/hello.a3630724dcdec4327ffb.js.map",
-  "runtime~app.js": "/static/js/runtime~app.a3630724dcdec4327ffb.js",
-  "runtime~app.js.map": "/static/js/runtime~app.a3630724dcdec4327ffb.js.map",
-  "vendors.js": "/static/js/vendors.fe2ffe41.js",
-  "vendors.js.map": "/static/js/vendors.a3630724dcdec4327ffb.js.map",
+  "hello.js.map": "/static/js/hello.5d40e80b46113e131240.js.map",
+  "runtime~app.js": "/static/js/runtime~app.5d40e80b46113e131240.js",
+  "runtime~app.js.map": "/static/js/runtime~app.5d40e80b46113e131240.js.map",
+  "vendors.js": "/static/js/vendors.a3e5a65b.js",
+  "vendors.js.map": "/static/js/vendors.5d40e80b46113e131240.js.map",
   "static/js/4.9ef6349f.js": "/static/js/4.9ef6349f.js",
-  "static/js/4.a3630724dcdec4327ffb.js.map": "/static/js/4.a3630724dcdec4327ffb.js.map",
+  "static/js/4.5d40e80b46113e131240.js.map": "/static/js/4.5d40e80b46113e131240.js.map",
   "index.html": "/index.html"
 }

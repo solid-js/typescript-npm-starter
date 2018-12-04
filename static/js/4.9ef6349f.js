@@ -1,2 +1,2 @@
 (window.webpackJsonp=window.webpackJsonp||[]).push([[4],{"./.docz/app/imports.js":function(n,o,t){"use strict";t.r(o),t.d(o,"imports",function(){return e});var e={"Hello.mdx":function(){return t.e(1).then(t.bind(null,"./doc/Hello.mdx"))}}}},0,[1]]);
-//# sourceMappingURL=4.a3630724dcdec4327ffb.js.map
+//# sourceMappingURL=4.5d40e80b46113e131240.js.map
