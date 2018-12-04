@@ -14,5 +14,5 @@ log('Done !\n');
 exec('rm -f setup.js');
 
 // And show doc
-log('\nAvailable npm scripts : (npm run help)');
+log('Available npm scripts : (npm run help)\n');
 exec('npm run help --silent', true);
