@@ -38,17 +38,4 @@ npm install
 echo "Done !"
 echo ""
 
-# Configuring package.json
-echo "Configure package.json :"
-npm init
-echo "Done !"
-echo ""
-
-# Init doc
-echo "Initialising documentation ..."
-node node_modules/docsify-cli/bin/docsify init -l doc
-echo "Done !"
-echo ""
-
-# Show help
-npm run help
+echo "> Please run 'node setup' to continue."
