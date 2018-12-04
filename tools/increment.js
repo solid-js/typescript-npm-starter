@@ -70,6 +70,9 @@ if (incrementIndex === -1)
 try
 {
 	module.exports.incrementPackage('package.json', incrementIndex);
+
+	// Add udpated package.json to git
+	exec(`git add package.json`);
 }
 catch (e) { error( e ) }
 
