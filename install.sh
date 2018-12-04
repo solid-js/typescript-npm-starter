@@ -13,6 +13,7 @@ if [ ! "$inside_git_repo" ]; then
 fi
 
 # Download archive as zip file
+echo ""
 echo "Downloading typescript-npm-starter archive..."
 curl -L -sS https://github.com/solid-js/typescript-npm-starter/archive/master.zip > archive.zip
 echo "Done !"
@@ -34,8 +35,9 @@ echo ""
 
 # Install not dependencies
 echo "Installing node dependencies..."
-npm install
+npm install --silent
 echo "Done !"
 echo ""
 
+# Continue setup with right privilege
 echo "> Please run $(tput bold)'node setup'$(tput sgr0) to continue."
