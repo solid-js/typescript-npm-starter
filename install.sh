@@ -43,4 +43,5 @@ npm init
 echo "Done !"
 echo ""
 
+# Show help
 npm run help
