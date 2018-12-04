@@ -67,14 +67,18 @@ if ('name' in packageJSON)
 
 // ----------------------------------------------------------------------------- PUSH TAGS
 
-// Here we push our tag which has been auto-generated in pre-commit.js
-try
+// Same as above, do not manage tags on typescript-npm-starter
+if ('name' in packageJSON)
 {
-	log('> Pushing version tag ...');
-	exec('git push --tags');
-	log('> Done !');
-}
-catch (e)
-{
-	error(`! Error push tag.\n${e.message}`);
+	// Here we push our tag which has been auto-generated in pre-commit.js
+	try
+	{
+		log('> Pushing version tag ...');
+		exec('git push --tags');
+		log('> Done !');
+	}
+	catch (e)
+	{
+		error(`! Error push tag.\n${e.message}`);
+	}
 }
