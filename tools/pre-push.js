@@ -16,8 +16,6 @@ if (huskyStdIn.indexOf('refs/tags/') == 0) return;
 
 // ----------------------------------------------------------------------------- PUBLISH DOC
 
-//exec(`git diff --stat --cached`)
-
 // Here we check if we need to regenerate and publish the documentation
 let needsDoc = false;
 try
@@ -27,7 +25,7 @@ try
 	const startCheckIndex = 5;
 
 	// If there is any updated file in git
-	exec('git status -s').split("\n").map( line =>
+	exec('git diff --stat --cached origin/master').split("\n").map( line =>
 	{
 		// Which is in the doc directory
 		[
