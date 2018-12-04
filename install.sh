@@ -38,4 +38,4 @@ npm install
 echo "Done !"
 echo ""
 
-echo "> Please run 'node setup' to continue."
+echo "> Please run $(tput bold)'node setup'$(tput sgr0) to continue."

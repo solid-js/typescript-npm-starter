@@ -17,17 +17,21 @@ const path = require('path');
 const currentCommitVersion = getPackageVersion( 'package.json' );
 const searchVersion = `v${currentCommitVersion}`;
 
-let doesThisTagExists;
-try
+// Do not continue if we are not in a real package (but in typescript-npm-starter)
+if (currentCommitVersion != null)
 {
-	doesThisTagExists = exec(`git tag | grep "${searchVersion}"`, false);
-}
-catch (e) { }
+	let doesThisTagExists;
+	try
+	{
+		doesThisTagExists = exec(`git tag | grep "${searchVersion}"`, false);
+	}
+	catch (e) { }
 
-// Tell user to increment package.json
-if (doesThisTagExists != null && doesThisTagExists.indexOf(searchVersion) === 0)
-{
-	error(`! Please increment package.json (${currentCommitVersion}) version before committing changes.\n\n$ npm run increment {major|minor|patch}`);
+	// Tell user to increment package.json
+	if (doesThisTagExists != null && doesThisTagExists.indexOf(searchVersion) === 0)
+	{
+		error(`! Please increment package.json (${currentCommitVersion}) version before committing changes.\n\n$ npm run increment {major|minor|patch}`);
+	}	
 }
 
 // ----------------------------------------------------------------------------- 2. BUILD
@@ -60,13 +64,17 @@ catch (e)
 
 // ----------------------------------------------------------------------------- 4. VERSION TAG
 
-// Add git tag for this package.json version. Halt on error.
-try
+// Do not continue if we are not in a real package (but in typescript-npm-starter)
+if (currentCommitVersion != null)
 {
-	exec(`git tag v${currentCommitVersion}`, true);
-	log(`! Added tag v${currentCommitVersion}`);
-}
-catch (e)
-{
-	error(`Error while adding tag.\n${e.message}\nCommit aborted.`);
+	// Add git tag for this package.json version. Halt on error.
+	try
+	{
+		exec(`git tag v${currentCommitVersion}`, true);
+		log(`! Added tag v${currentCommitVersion}`);
+	}
+	catch (e)
+	{
+		error(`Error while adding tag.\n${e.message}\nCommit aborted.`);
+	}
 }
