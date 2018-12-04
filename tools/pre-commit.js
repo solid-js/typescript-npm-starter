@@ -13,36 +13,26 @@ const path = require('path');
 
 // ----------------------------------------------------------------------------- 1. VERSION INCREMENT
 
-// Get previous and current package.json versions
-const lastCommitPackagePath = path.join(__dirname, '.package');
+// Check if package.json version has not been updated
 const currentCommitVersion = getPackageVersion( 'package.json' );
+const searchVersion = `v${currentCommitVersion}`;
 
-// If unable to get previous version
-let needsPatchCommit = false;
-if ( !fs.existsSync(lastCommitPackagePath) )
+let doesThisTagExists;
+try
 {
-	// Do not ask for an increment
-	needsPatchCommit = false;
+	doesThisTagExists = exec(`git tag | grep "${searchVersion}"`, false);
 }
-else
-{
-	// Check if versions matches
-	try
-	{
-		const lastCommitVersion = getPackageVersion( lastCommitPackagePath );
-		needsPatchCommit = (lastCommitVersion == currentCommitVersion);
-	}
-	catch (e) { needsPatchCommit = true }
-}
+catch (e) { }
 
-// Ask for an increment if version did not changed
-if ( needsPatchCommit )
+// Tell user to increment package.json
+if (doesThisTagExists != null && doesThisTagExists.indexOf(searchVersion) === 0)
 {
-	error(`! Please increment package.json version before committing changes.\n\n$ npm run increment {major|minor|patch}\nCommit aborted.`);
+	error(`! Please increment package.json (${currentCommitVersion}) version before committing changes.\n\n$ npm run increment {major|minor|patch}`);
 }
 
 // ----------------------------------------------------------------------------- 2. BUILD
 
+// Clean and build sources. Halt on error.
 try
 {
 	log(`> Building sources ...`);
@@ -56,6 +46,7 @@ catch (e)
 
 // ----------------------------------------------------------------------------- 3. TESTS
 
+// Run tests. Halt on error.
 try
 {
 	log(`> Running tests ...`);
@@ -69,6 +60,7 @@ catch (e)
 
 // ----------------------------------------------------------------------------- 4. VERSION TAG
 
+// Add git tag for this package.json version. Halt on error.
 try
 {
 	exec(`git tag v${currentCommitVersion}`, true);
@@ -76,10 +68,5 @@ try
 }
 catch (e)
 {
-	error(`Error while adding tag.\nYou may need to increment package.json version.\n\n${e.message}\nCommit aborted.`);
+	error(`Error while adding tag.\n${e.message}\nCommit aborted.`);
 }
-
-// ----------------------------------------------------------------------------- 5. LAST COMMIT VERSION
-
-// Remember this commit version to detect changes for next commit
-fs.writeFileSync(lastCommitPackagePath, fs.readFileSync('package.json'));

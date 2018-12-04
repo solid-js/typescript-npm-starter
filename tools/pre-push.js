@@ -28,12 +28,14 @@ try
 	exec('git status -s').split("\n").map( line =>
 	{
 		// Which is in the doc directory
-		if (
-			line.indexOf('doc/') < startCheckIndex
-			||
-			line.indexOf('.doczrc.js') < startCheckIndex
-		)
-			needsDoc = true;
+		[
+			line.indexOf('doc/'),
+			line.indexOf('.doczrc.js')
+		].map( check =>
+		{
+			if (check !== -1 && check < startCheckIndex)
+				needsDoc = true;
+		});
 	});
 }
 
