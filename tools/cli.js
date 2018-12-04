@@ -19,6 +19,7 @@ module.exports = {
 	error: (str, code) =>
 	{
 		console.error(chalk.red.bold( str ));
+		console.error('');
 		process.exit( code || 1 );
 	},
 

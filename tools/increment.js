@@ -1,89 +1,76 @@
-// TODO : Utiliser inquirer
-// TODO : Le poser sur @zouloux/package-increment ?
+/**
+ *
+ */
 
 
-const Inquirer = require('inquirer');
+const {log, exec, error} = require('./cli');
+const path = require('path');
 const fs = require('fs');
 
 module.exports = {
-	/**
-	 * @param
-	 * @param 
-	 */
-	semverIncrement: function (pStringVersion, pSemverIndex)
+
+	semverIncrement: function (version, semverIndex)
 	{
-		// Split version semver
-		const splittedVersion = packageData.version.split('.');
-
-		const semverIndex = parseInt( incrementSemver.a );
-
+		const splittedVersion = version.split('.');
 		splittedVersion[ semverIndex ] = parseInt(splittedVersion[ semverIndex ], 10) + 1;
-
-		const newVersion = splittedVersion.join('.');
+		return splittedVersion.join('.');
 	},
 
-	start: async function (pPackagePath = 'package.json')
+	incrementPackage: function (packagePath, semverIndex)
 	{
 		// Check if package file exists
-		if ( !fs.existsSync(pPackagePath) )
+		if ( !fs.existsSync(packagePath) )
 		{
-			throw new Error(`Package file ${pPackagePath} is not found.`, 1);
+			throw new Error(`Package file ${packagePath} is not found.`, 1);
 		}
 
 		// Read package file content
 		const packageData = JSON.parse( fs.readFileSync( packagePath ) );
 
-		// Show current version of package file
-		console.log(`\nCurrent version is ${packageData.version}.\n`);
+		// Increment version according to semver increment index
+		packageData.version = module.exports.semverIncrement(packageData.version, semverIndex);
 
-		// Ask for semver increment
-		const incrementSemver = await Inquirer.prompt({
-			name: 'a',
-			type: 'list',
-			message: 'Increment package.json version before publish ?',
-			choices : [
-				{
-					value: 'exit',
-					name: 'Exit'
-				},
-				{
-					value: '0',
-					name: 'Major X.0.0 (any breaking change in API)',
-				},
-				{
-					value: '1',
-					name: 'Minor 0.X.0 (any feature change in API)',
-				},
-				{
-					value: '2',
-					name: 'Patch 0.0.X (only patched or updated non breaking behavior)',
-				}
-			]
-		});
-
-		// Exit process
-		if (incrementSemver.a == 'exit') process.exit( 0 );
-
-		packageData.version = newVersion;
-
+		// Write new package.json
 		fs.writeFileSync(packagePath, JSON.stringify( packageData, null, 2));
 
-		console.log(`\nIncremented package.json version to ${ newVersion }\n`);
+		// Return incremented version
+		return packageData.version;
+	},
+
+	getPackageVersion: function (packagePath)
+	{
+		return JSON.parse( fs.readFileSync( packagePath ) ).version;
 	}
 }
 
-const checkIfRunningCLI = function ()
-{
-	const path = require('path');
-	var filename = 'hello.html';
 
-	path.parse(filename).name;
+// Detect if this script is started from CLI
+const thisFilePath = path.resolve( __filename.substr( 0, __filename.lastIndexOf('.') ) ).toLowerCase();
+const argvFilePath = path.resolve( process.argv[1] ).toLowerCase();
+
+// Do not continue if not started from CLI (just expose exports for other scripts)
+if ( thisFilePath != argvFilePath ) return;
+
+// Get increment name
+const incrementName = (process.argv[2] || '').toLowerCase();
+const validIncrementNames = [
+	'major',
+	'minor',
+	'patch'
+];
+
+// Get increment index and check its validity
+const incrementIndex = validIncrementNames.indexOf(incrementName);
+if (incrementIndex === -1)
+{
+	error(`Invalid increment argument. Valid values :\n-> ${validIncrementNames.join(' / ')}\n\nex: npm run increment patch`);
 }
 
-console.log( __filename );
-console.log( process.argv[1] );
-
-
-
+// Increment package.json in parent folder
+try
+{
+	module.exports.incrementPackage('package.json', incrementIndex);
+}
+catch (e) { error( e ) }
 
 

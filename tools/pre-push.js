@@ -6,13 +6,13 @@
 
 const {log, exec} = require('./cli');
 
+// ----------------------------------------------------------------------------- HOOK
 
+// Checking if this is hooked from "git push --tags"
+// If this is, do not continue to avoid infinite git hook loop.
+// ( tags are pushed just bellow and this script is triggered by git push )
 const huskyStdIn = process.env['HUSKY_GIT_STDIN'] || '';
-
-if (huskyStdIn.indexOf('refs/tags/') == 0)
-{
-	return;
-}
+if (huskyStdIn.indexOf('refs/tags/') == 0) return;
 
 // ----------------------------------------------------------------------------- PUBLISH DOC
 
@@ -65,6 +65,14 @@ if ('name' in packageJSON)
 
 // ----------------------------------------------------------------------------- PUSH TAGS
 
-log('> Pushing version tag ...');
-exec('git push --tags', true);
-log('> Done !');
+// Here we push our tag which has been auto-generated in pre-commit.js
+try
+{
+	log('> Pushing version tag ...');
+	exec('git push --tags');
+	log('> Done !');
+}
+catch (e)
+{
+	error(`! Error push tag.\n${e.message}`);
+}
