@@ -1,9 +1,6 @@
 const exec = require('child_process').execSync;
 const chalk = require('chalk');
 
-// Always offset one line before starting a CLI tool
-console.log('');
-
 module.exports = {
 	/**
 	 * Log a bold line in CLI

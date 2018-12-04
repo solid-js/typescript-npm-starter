@@ -7,7 +7,7 @@
  */
 
 const { log, exec, error } = require('./cli');
-const { getPackageVersion } = require('./increment');
+const { getPackageVersion } = require('@zouloux/semver-increment')
 const fs = require('fs');
 const path = require('path');
 
