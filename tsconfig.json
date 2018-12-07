@@ -20,9 +20,7 @@
     	"outDir": "./dist",
 
 		// Compile typescript files to ready-to-use es next modules
-		//"module": "commonjs",
-    	//"target": "ES6",
-    	"module": "esnext",
+		"module": "commonjs",
     	"target": "esnext",
 		"moduleResolution": "node",
 
@@ -68,8 +66,8 @@
 		"traceResolution": false,
 		"pretty": true
 
+		// --------------------------------------------------------------------- HELPERS
 
-		// TODO : Sure ?
 		//"importHelpers" : true,
 		//"noEmitHelpers" : true,
 	},
