@@ -41,3 +41,4 @@ echo ""
 
 # Continue setup with right privilege
 echo "Run $(tput bold)'node setup'$(tput sgr0) to continue."
+echo "Run $(tput bold)'node setup no-publish'$(tput sgr0) to continue for a private npm package."

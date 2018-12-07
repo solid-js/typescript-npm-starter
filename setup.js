@@ -9,7 +9,6 @@ if (publish)
 	log('Please choose an available npm package name because it will be published after this step.');
 	log('You also need to be logged into npm to continue ($ npm login)');
 	log('You can prefix with your npm name to avoid public name collision.');
-	log('run $ node setup no-publish to disable auto-publishing after setup.');
 }
 
 log('');
