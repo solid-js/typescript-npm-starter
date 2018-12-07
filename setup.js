@@ -9,6 +9,7 @@ log('');
 require('child_process').execSync('npm init', {stdio: [0, 1, 2]});
 log('Done !\n');
 
+// Publish to npm for the first time as a public package
 log('Publishing first module version to npm')
 require('child_process').execSync('npm publish --access=public', {stdio: [0, 1, 2]});
 log('Done !\n');
@@ -18,8 +19,10 @@ log('Initialising documentation ...');
 exec('node node_modules/docsify-cli/bin/docsify init -l doc');
 log('Done !\n');
 
-// Remove this file
+// Clean some files
 exec('rm -f setup.js');
+exec('rm -rf src/lib/');
+exec('echo "console.log(`Hello World`)" > src/index.ts');
 
 // And show doc
 log('Available npm scripts : (npm run help)\n');
