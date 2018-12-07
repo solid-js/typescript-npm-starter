@@ -1,16 +1,25 @@
 const { log, exec, error } = require('./tools/cli');
 
+const publish = (process.argv[2] || '').toLowerCase() != 'no-publish';
+
 // Ask questions to configure package.json
+if (publish)
+{
+	log('IMPORTANT - Package publishing.');
+	log('Please choose an available npm package name because it will be published after this step.');
+	log('You also need to be logged into npm to continue ($ npm login)');
+	log('You can prefix with your npm name to avoid public name collision.');
+	log('run $ node setup no-publish to disable auto-publishing after setup.');
+}
+
+log('');
 log('Configure package.json :');
-log('IMPORTANT : Please choose an available npm package name because it will be published after this step.');
-log('IMPORTANT : You need to be logged into npm to continue ($ npm login)');
-log('You can prefix with your npm name to avoid public name collision.');
 log('');
 require('child_process').execSync('npm init', {stdio: [0, 1, 2]});
 log('Done !\n');
 
 // Publish to npm for the first time as a public package
-if (process.argv[2] != 'no-publish')
+if ( publish )
 {
 	log('Publishing first module version to npm')
 	require('child_process').execSync('npm publish --access=public', {stdio: [0, 1, 2]});
