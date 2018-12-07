@@ -7,9 +7,9 @@ module.exports = {
 	/**
 	 * Log a bold line in CLI
 	 */
-	log: ( message ) =>
+	log: ( message, noBold ) =>
 	{
-		console.log( chalk.bold(message) )
+		console.log( noBold ? message : chalk.bold(message) )
 	},
 
 	/**
