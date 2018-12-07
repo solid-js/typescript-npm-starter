@@ -6,6 +6,9 @@
 
 const { log, exec, inRealPackage } = require('./cli');
 
+// Hook only if we are on a real package here (and not typescript-npm-starter)
+if ( !inRealPackage() ) return;
+
 // ----------------------------------------------------------------------------- HOOK
 
 // Checking if this is hooked from "git push --tags"
@@ -55,28 +58,20 @@ if ( needsDoc )
 // Get package.json info
 const packageJSON = require('../package.json');
 
-// Only publish to npm if we are on a real package here (and not typescript-npm-starter)
-if ( inRealPackage() )
-{
-	log(`> Publishing package ${packageJSON.name} version ${packageJSON.version} to NPM ...`);
-	exec('npm publish', true);
-	log('> Done !');
-}
+log(`> Publishing package ${packageJSON.name} version ${packageJSON.version} to NPM ...`);
+exec('npm publish', true);
+log('> Done !');
 
 // ----------------------------------------------------------------------------- PUSH TAGS
 
-// Push tags only if we are on a real package here (and not typescript-npm-starter)
-if ( inRealPackage() )
+// Here we push our tag which has been auto-generated in pre-commit.js
+try
 {
-	// Here we push our tag which has been auto-generated in pre-commit.js
-	try
-	{
-		log('> Pushing version tag ...');
-		exec('git push --tags');
-		log('> Done !');
-	}
-	catch (e)
-	{
-		error(`! Error push tag.\n${e.message}`);
-	}
+	log('> Pushing version tag ...');
+	exec('git push --tags');
+	log('> Done !');
+}
+catch (e)
+{
+	error(`! Error push tag.\n${e.message}`);
 }
