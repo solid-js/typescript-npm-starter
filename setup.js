@@ -23,8 +23,8 @@ require('child_process').execSync('npm init', {stdio: [0, 1, 2]})
 
 // Do not continue if npm init has been aborted
 inRealPackage()
-? error('Aborted.')
-: log('Done !\n')
+? log('Done !\n')
+: error('Aborted.')
 
 // Publish to npm for the first time as a public package
 if ( publish )
