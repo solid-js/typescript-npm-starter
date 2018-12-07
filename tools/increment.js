@@ -18,37 +18,33 @@
  * 2 for patch
  */
 
-const { log, exec, error } = require('./cli');
+const { log, exec, error, inRealPackage } = require('./cli');
 const { incrementPackage } = require('@zouloux/semver-increment')
-const { processify } = require('processify')
 const path = require('path');
 const fs = require('fs');
 
-processify({
-	0: 'patch',
-	1: 'package.json'
-}, function (args)
+// Only continue if we are on a real package here (and not typescript-npm-starter)
+if ( !inRealPackage() ) return;
+
+// Get increment name from first argument
+const incrementName = (process.argv[2] || 'patch').toLowerCase();
+
+const validIncrementNames = [
+	'major',
+	'minor',
+	'patch'
+];
+
+// Get increment index and check its validity
+const incrementIndex = validIncrementNames.indexOf( incrementName );
+if (incrementIndex === -1)
 {
-	// Get increment name
-	const incrementName = args[0].toLowerCase();
-	const validIncrementNames = [
-		'major',
-		'minor',
-		'patch'
-	];
+	error(`Invalid increment argument. Valid values :\n-> ${validIncrementNames.join(' / ')}\n\nex: npm run increment patch`);
+}
 
-	// Get increment index and check its validity
-	const incrementIndex = validIncrementNames.indexOf( incrementName );
-	if (incrementIndex === -1)
-	{
-		error(`Invalid increment argument. Valid values :\n-> ${validIncrementNames.join(' / ')}\n\nex: npm run increment patch`);
-	}
+// Increment package.json
+const newVersion = incrementPackage('package.json', incrementIndex);
+log(`Incremented package to ${newVersion}`);
 
-	// Increment package.json
-	const newVersion = incrementPackage(args[1], incrementIndex);
-	log(`Incremented package to ${newVersion}`);
-
-	// Add udpated package.json to git
-	exec(`git add package.json`);
-});
-
+// Add udpated package.json to git
+exec(`git add package.json`);

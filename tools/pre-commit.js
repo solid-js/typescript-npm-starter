@@ -6,7 +6,7 @@
  * 4. Will add tag for this package.json version
  */
 
-const { log, exec, error } = require('./cli');
+const { log, exec, error, inRealPackage } = require('./cli');
 const { getPackageVersion } = require('@zouloux/semver-increment')
 const fs = require('fs');
 const path = require('path');
@@ -17,8 +17,8 @@ const path = require('path');
 const currentCommitVersion = getPackageVersion( 'package.json' );
 const searchVersion = `v${currentCommitVersion}`;
 
-// Do not continue if we are not in a real package (but in typescript-npm-starter)
-if (currentCommitVersion != null)
+// Check tag only if we are on a real package here (and not typescript-npm-starter)
+if ( inRealPackage() )
 {
 	let doesThisTagExists;
 	try
@@ -64,8 +64,8 @@ catch (e)
 
 // ----------------------------------------------------------------------------- 4. VERSION TAG
 
-// Do not continue if we are not in a real package (but in typescript-npm-starter)
-if (currentCommitVersion != null)
+// Create a tag only if we are on a real package here (and not typescript-npm-starter)
+if ( inRealPackage() )
 {
 	// Add git tag for this package.json version. Halt on error.
 	try

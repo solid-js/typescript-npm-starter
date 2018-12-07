@@ -4,7 +4,7 @@
  * 2. Will publish to npm if package.json contains a name field
  */
 
-const {log, exec} = require('./cli');
+const { log, exec, inRealPackage } = require('./cli');
 
 // ----------------------------------------------------------------------------- HOOK
 
@@ -43,7 +43,7 @@ try
 catch (e) { needsDoc = true }
 
 // Regenerate doc
-if (needsDoc)
+if ( needsDoc )
 {
 	log('> Doc updated, regenerating and publishing to github.io ...');
 	exec('gh-pages -d doc', true);
@@ -55,10 +55,8 @@ if (needsDoc)
 // Get package.json info
 const packageJSON = require('../package.json');
 
-// If there is name in package.json
-// This means we are not pushing typescript-npm-starter but a real package
-// So we publish to npm
-if ('name' in packageJSON)
+// Only publish to npm if we are on a real package here (and not typescript-npm-starter)
+if ( inRealPackage() )
 {
 	log(`> Publishing package ${packageJSON.name} version ${packageJSON.version} to NPM ...`);
 	exec('npm publish', true);
@@ -67,8 +65,8 @@ if ('name' in packageJSON)
 
 // ----------------------------------------------------------------------------- PUSH TAGS
 
-// Same as above, do not manage tags on typescript-npm-starter
-if ('name' in packageJSON)
+// Push tags only if we are on a real package here (and not typescript-npm-starter)
+if ( inRealPackage() )
 {
 	// Here we push our tag which has been auto-generated in pre-commit.js
 	try

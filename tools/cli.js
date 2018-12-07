@@ -1,6 +1,8 @@
 const exec = require('child_process').execSync;
 const chalk = require('chalk');
 
+const inRealPackage = (require('../package.json').name != null);
+
 module.exports = {
 	/**
 	 * Log a bold line in CLI
@@ -29,5 +31,12 @@ module.exports = {
 			stdio: [1, 2]
 		});
 		return result ? result.toString() : null;
-	}
+	},
+
+	/**
+	 * Check if we are a real package.
+	 * A real package is a package that goes on NPM and is created from
+	 * typescript-npm-starter. 
+	 */
+	inRealPackage: () => inRealPackage
 }
