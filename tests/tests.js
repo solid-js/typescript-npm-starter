@@ -4,10 +4,8 @@
  */
 const assert = require('assert');
 
-/**
- * Create your lib's test here.
- * You can use compiled js files.
- */
+// const myLib = require('../dist/index')
+
 describe('Main test', () =>
 {
 	it('Should test this', done =>
