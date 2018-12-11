@@ -6,9 +6,6 @@
 
 const { log, exec, inRealPackage } = require('./cli');
 
-// Hook only if we are on a real package here (and not typescript-npm-starter)
-if ( !inRealPackage() ) return;
-
 // ----------------------------------------------------------------------------- HOOK
 
 // Checking if this is hooked from "git push --tags"
@@ -54,6 +51,9 @@ if ( needsDoc )
 }
 
 // ----------------------------------------------------------------------------- NPM PUBLISH
+
+// Hook only if we are on a real package here (and not typescript-npm-starter)
+if ( !inRealPackage() ) return;
 
 // Get package.json info
 const packageJSON = require('../package.json');
