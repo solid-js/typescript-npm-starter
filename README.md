@@ -1,7 +1,8 @@
 # Solid JS - Typescript NPM Starter
 
-A quick start for NPM projects with Typescript sources.
+A lite starter for NPM libraries with Typescript sources, integrated unit test, Git hooks, Markdown documentation.
 
 
+## Install
 
-#### https://solid-js.github.io/typescript-npm-starter/
+[Quick installation](install/quick-start.md)
