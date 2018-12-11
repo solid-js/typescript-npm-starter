@@ -4,6 +4,7 @@
 		// --------------------------------------------------------------------- INPUT
 
 		// Included libraries for NPM
+		// You can add libs for Dom, Node, etc ...
 		"lib": ["ES2016", "ES2017", "ES2018", "ESNext"],
 
 		// Where typescript files are

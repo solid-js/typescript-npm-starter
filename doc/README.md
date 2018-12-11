@@ -1,7 +1,7 @@
-# Solid JS - Typescript NPM Starter
 
-A quick start for NPM projects with Typescript sources.
+# test
+
+Super
 
 
-
-#### https://solid-js.github.io/typescript-npm-starter/
+# Trop bien

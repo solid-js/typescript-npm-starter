@@ -5,7 +5,7 @@ A quick start for NPM libraries with Typescript sources.
 
 ## Features
 
-Type code in typescript and this will convert sources to commonjs / node compatible output.
+Type code in typescript and this will convert sources to commonjs / esnext / node compatible output.
 
 
 ## Requirements
@@ -25,6 +25,8 @@ Non public npm projects will work but when installing a new project, call `node 
 
 
 ## Documentation
+
+https://docsify.js.org/
 
 https://solid-js.github.io/typescript-npm-starter/
 

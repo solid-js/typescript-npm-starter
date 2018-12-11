@@ -42,6 +42,7 @@ log('Done !\n');
 // Clean
 exec('rm -f setup.js');
 exec('rm -rf src/lib/');
+exec('rm -rf TODO.md');
 exec('echo "console.log(\'Hello World !\')" > src/index.ts');
 
 // And show doc
