@@ -1,7 +1,8 @@
+# Solid JS - Typescript NPM Starter
 
-# test
-
-Super
+A lite starter for NPM libraries with Typescript sources, integrated unit test, Git hooks, Markdown documentation.
 
 
-# Trop bien
+## Install
+
+[Quick installation](install/quick-start.md)

@@ -1,32 +1,36 @@
+![solid-js](doc/_media/solid-js.png)
+
 # Solid JS - Typescript NPM Starter
 
-A quick start for NPM libraries with Typescript sources.
+A lite starter for NPM libraries with Typescript sources, integrated unit test, Git hooks, Markdown documentation.
 
 
-## Features
+# Features
 
-Type code in typescript and this will convert sources to commonjs / esnext / node compatible output.
+## Typescript
+TODO
 
 
-## Requirements
+## Open-Source first
 
-##### Only for github open source projects
-Non github projects will work but documentation will not be uploaded to github.io.
+##### For GitHub open source projects
+Non GitHub projects will work but documentation will not be uploaded to github.io.
 
-##### Only for public npm projects
+##### For public NPM projects
 Non public npm projects will work but when installing a new project, call `node setup no-publish` to avoid publishing your package in public scope.
 
 
-## Install
+## Clean documentation
+TODO
 
-1. Create a new project on github
+## Unit tests
+TODO
 
-`curl https://raw.githubusercontent.com/solid-js/typescript-npm-starter/master/install.sh | sh`
+## Git Hooks
+TODO
 
 
-## Documentation
 
-https://docsify.js.org/
+===
 
 https://solid-js.github.io/typescript-npm-starter/
-
