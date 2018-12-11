@@ -7,11 +7,11 @@ A lite starter for NPM libraries with Typescript sources, integrated unit test, 
 
 # Features
 
-## Typescript
+## Typescript First
 TODO
 
 
-## Open-Source first
+## For Open-Source projects
 
 ##### For GitHub open source projects
 Non GitHub projects will work but documentation will not be uploaded to github.io.
@@ -33,4 +33,4 @@ TODO
 
 ===
 
-https://solid-js.github.io/typescript-npm-starter/
+# [Start](https://solid-js.github.io/typescript-npm-starter/#/install/quick-start.md)
