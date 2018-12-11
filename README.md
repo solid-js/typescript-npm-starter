@@ -1,6 +1,6 @@
-![solid-js](doc/_media/solid-js.png)
+![solid-js](doc/media/solid-js.png)
 
-# Solid JS - Typescript NPM Starter
+# Typescript NPM Starter
 
 A lite starter for NPM libraries with Typescript sources, integrated unit test, Git hooks, Markdown documentation.
 
