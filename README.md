@@ -5,25 +5,23 @@
 Smart starter for NPM libraries with Typescript sources, integrated unit test, Git hooks and Markdown documentation.
 
 
-# Features
-
 ## Typescript First
 
-Create solid libraries with Typescript as source, exported automatically as Javascript modules with Typescript definitions. No Typescript files are push to NPM, to keep pure Javascript pipeline with opt-in Typescript features for developers using your library.
+Create solid libraries with Typescript as source, exported as Javascript modules with Typescript definitions. No Typescript files are pushed to NPM, to keep pure Javascript pipeline with opt-in Typescript features for developers using your library.
 
 
 ## For Open-Source projects
 
-##### For GitHub open source projects
+#### GitHub
 Non GitHub projects will work but documentation will not be uploaded to github.io.
 
-##### For public NPM projects
-Non public npm projects will work but when installing a new project, call `node setup no-publish` to avoid publishing your package in public scope.
+#### Public NPM projects
+Non public npm projects will work but pushing to npm automatically will be disabled.
 
 
 ## Clean documentation
 
-Create [clean documentations](https://solid-js.github.io/typescript-npm-starter/) thanks to [docsify](https://docsify.js.org). Markdown editing with no compiling phase. Really simple management and automatically uploaded to your github.io space.
+Create [clean documentations](https://solid-js.github.io/typescript-npm-starter/) thanks to [docsify](https://docsify.js.org). Markdown editing with no compiling phase. Really simple management and automatically uploaded to your github.io space when pushing a new version.
 
 ## Unit tests
 
