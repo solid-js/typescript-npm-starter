@@ -1,6 +1,7 @@
 # Typescript NPM Starter
 
-A lite starter for NPM libraries with Typescript sources, integrated unit test, Git hooks, Markdown documentation.
+Smart starter for NPM libraries with Typescript sources, integrated unit test, Git hooks and Markdown documentation.
 
+---
 
-## [Start](install/quick-start.md)
+# [Create a new package !](install/quick-start.md)
