@@ -38,4 +38,4 @@ Git hooks pre-configured with [husky](https://github.com/typicode/husky) :
 
 ---
 
-# [Create a new package !](https://solid-js.github.io/typescript-npm-starter/#/install/quick-start.md)
+# [Create a new package](https://solid-js.github.io/typescript-npm-starter/#/install/quick-start.md)
