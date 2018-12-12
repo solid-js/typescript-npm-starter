@@ -33,5 +33,3 @@ Javascript compiled files will be deployed here. This will only include `*.js` a
 
 
 ### tools/
-
-
