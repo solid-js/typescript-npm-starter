@@ -21,6 +21,7 @@
     	"outDir": "./dist",
 
 		// Compile typescript files to ready-to-use es next modules
+		// Note : tsconfig.module.json will output mjs files.
 		"module": "commonjs",
     	"target": "esnext",
 		"moduleResolution": "node",

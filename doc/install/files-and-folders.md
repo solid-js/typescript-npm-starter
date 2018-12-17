@@ -33,3 +33,5 @@ Javascript compiled files will be deployed here. This will only include `*.js` a
 
 
 ### tools/
+
+Here are stored utility scripts and hooks. Feel free to explore !

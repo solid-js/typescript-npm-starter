@@ -45,7 +45,7 @@ catch (e) { needsDoc = true }
 // Regenerate doc
 if ( needsDoc )
 {
-	log('> Doc updated, regenerating and publishing to github.io ...');
+	log('> Doc updated, publishing to github.io ...');
 	exec('gh-pages -d doc', true);
 	log('> Done !');
 }
@@ -55,12 +55,16 @@ if ( needsDoc )
 // Hook only if we are on a real package here (and not typescript-npm-starter)
 if ( !inRealPackage() ) return;
 
-// Get package.json info
-const packageJSON = require('../package.json');
+// Do not publish to NPM if .nopublish file exists
+if ( !require('fs').existsSync('.nopublish') )
+{
+	// Get package.json info
+	const packageJSON = require('../package.json');
 
-log(`> Publishing package ${packageJSON.name} version ${packageJSON.version} to NPM ...`);
-exec('npm publish', true);
-log('> Done !');
+	log(`> Publishing package ${packageJSON.name} version ${packageJSON.version} to NPM ...`);
+	exec('npm publish', true);
+	log('> Done !');
+}
 
 // ----------------------------------------------------------------------------- PUSH TAGS
 
