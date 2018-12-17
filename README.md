@@ -2,6 +2,14 @@
 
 Smart starter for NPM libraries with Typescript sources, integrated unit test, Git hooks and Markdown documentation.
 
+## Requirements
+
+- MacOS or Linux based system
+- Node 8.7+
+- Git 2.0+
+
+You can open an issue for Windows Support. Any help will be welcome.
+
 
 ## Typescript First
 
@@ -23,7 +31,8 @@ Create [clean documentations](https://solid-js.github.io/typescript-npm-starter/
 
 ## Unit tests
 
-Create your lib from unit tests and be sure that a new version will not break.
+Create your lib with Unit tests and be sure that a new version will not break.
+Unis tests are run with [Mocha](https://mochajs.org/)
 
 ## Git Hooks
 

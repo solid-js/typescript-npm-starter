@@ -15,7 +15,7 @@ Open a new terminal, `cd` to the Git folder and run this line :
 
 ### Setup package
 
-Follow instructions and run `node setup` if you want a classic public NPM package.<br>Choose `node setup no-publish` if you want to create a private package.
+Follow instructions and run `node setup` if you want a classic public NPM package.<br>Choose `node setup no-publish` if you want to create a private package or disable auto publishing to NPM when pushing to Git.
 
 ### Files
 
