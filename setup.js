@@ -3,9 +3,9 @@ const { log, exec, error, inRealPackage } = require('./tools/cli');
 // Get argument to enable no publish mode
 const argv2 = (process.argv[2] || '').toLowerCase();
 const publish = (
-	publish != 'no-publish'
+	argv2 != 'no-publish'
 	&&
-	publish != 'nopublish'
+	argv2 != 'nopublish'
 );
 
 // Ask questions to configure package.json
