@@ -12,6 +12,15 @@ if [ ! "$inside_git_repo" ]; then
 	exit 1;
 fi
 
+# Init git repo so first hooked commit works
+echo "Initializing git repo..."
+touch test
+git add test
+git commit -m"First commit"
+git push
+rm test
+echo "Done !"
+
 # Download archive as zip file
 echo ""
 echo "Downloading typescript-npm-starter archive..."
@@ -49,15 +58,6 @@ echo "Installing node dependencies..."
 npm i &>/dev/null
 echo "Done !"
 echo ""
-
-# Init git repo so first hooked commit works
-echo "Initilizing git repo..."
-touch test
-git add test
-git commit -m"First commit"
-git push
-rm test
-echo "Done !"
 
 # Continue setup with right privilege
 echo "Run $(tput bold)'node setup'$(tput sgr0) to continue."
