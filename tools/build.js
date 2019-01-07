@@ -1,13 +1,15 @@
 /**
- * 
+ * Will build sources from src/ folder to dist/ folder.
+ * 1. Will compile Typescript files to ES modules as .mjs files.
+ * 2. Will compile Typescript files to Common JS modules as .js files.
  */
 
 const { log, exec, error, inRealPackage } = require('./cli');
 const fs = require('fs');
 const path = require('path');
 
-// Utility to recursively rename all .js files to .mjs files
-function recursiveRename (dir)
+// Utility to recursively change files extensions into a folder
+function recursiveChangeExtension (dir, from, to)
 {
 	fs.readdirSync(dir).forEach( f =>
 	{
@@ -17,41 +19,40 @@ function recursiveRename (dir)
 		// Recursive browse and rename if this is a directory
 		if ( stats.isDirectory() )
 		{
-			recursiveRename( filePath );
+			recursiveChangeExtension( filePath );
 		}
 
 		// Rename to .mjs if this is a .js file
-		else if ( path.extname( f ) == '.js' )
+		else if ( path.extname( f ) == from )
 		{
-			fs.renameSync( filePath, filePath.replace('.js', '.mjs') );
+			fs.renameSync( filePath, filePath.replace(from, to) );
 		}
 	});
 }
 
-// Compile to es modules as .js files
-log(`Compiling Typescript to ES modules ...`);
-try
-{
-	exec(`tsc -p tsconfig.module.json`, {shell: true, stdio: [0, 1, 2]});
-}
-catch (e)
-{
-	process.exit(1);
-}
-log(`Done !`);
+[
+	// Compile ES modules with tsconfig.module.json and rename all files to .mjs files
+	['Compiling Typescript to ES modules', 'tsc -p tsconfig.module.json', '.mjs'],
 
-// Rename all .js files to .mjs files
-recursiveRename('dist/');
+	// Compile Common JS modules with default tsconfig and keep .js files
+	['Compiling Typescript to Common JS modules', 'tsc'],
 
-// Compile to Common JS modules as .js files
-log('');
-log(`Compiling Typescript to Common JS modules ...`);
-try
+].map( el =>
 {
-	exec(`tsc`, {stdio: [0, 1, 2]});
-}
-catch (e)
-{
-	process.exit(1);
-}
-log(`Done !`);
+	log(`${el[0]} ...`, true, true);
+	try
+	{
+		// Compile with tsc
+		exec(el[1], {shell: true, stdio: [0, 1, 2]});
+
+		// Rename extensions if needed
+		(2 in el) && recursiveChangeExtension('dist/', '.js', el[2]);
+	}
+	catch (e)
+	{
+		console.log('');
+		console.error(e);
+		process.exit(1);
+	}
+	log(` Done !\n`, false, true);
+});

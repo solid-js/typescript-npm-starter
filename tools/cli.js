@@ -5,9 +5,10 @@ module.exports = {
 	/**
 	 * Log a bold line in CLI
 	 */
-	log: ( message, noBold ) =>
+	log: ( message, noBold, noLine ) =>
 	{
-		console.log( noBold ? message : chalk.bold(message) )
+		const content = noBold ? message : chalk.bold(message);
+		noLine ? process.stdout.write( content ) : console.log( content );
 	},
 
 	/**
