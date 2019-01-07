@@ -50,6 +50,15 @@ npm i &>/dev/null
 echo "Done !"
 echo ""
 
+# Init git repo so first hooked commit works
+echo "Initilizing git repo..."
+touch test
+git add test
+git commit -m"First commit"
+git push
+rm test
+echo "Done !"
+
 # Continue setup with right privilege
 echo "Run $(tput bold)'node setup'$(tput sgr0) to continue."
 echo "Run $(tput bold)'node setup no-publish'$(tput sgr0) to continue for a private npm package."
