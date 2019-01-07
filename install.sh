@@ -21,15 +21,25 @@ echo ""
 
 # Unzip archive and install only required files
 echo "Installing archive..."
+
+# 1. Extract and remove archive
 unzip -q archive.zip
 rm archive.zip
+
+# 2. Clean unnecessary files
 rm -rf typescript-npm-starter-master/README.md
 rm -rf typescript-npm-starter-master/LICENSE
 rm -rf typescript-npm-starter-master/install.sh
 rm -rf typescript-npm-starter-master/doc
+
+# 3. Move all files and folders from archive into this directory
 mv typescript-npm-starter-master/* ./
-mv typescript-npm-starter-master/.npmignore .npmignore
-cat typescript-npm-starter-master/.gitignore >> .gitignore
+
+# 4. Add .npmignore and .gitignore content without overriding
+echo "---" >> .npmignore && cat typescript-npm-starter-master/.npmignore >> .npmignore
+echo "---" >> .gitignore && cat typescript-npm-starter-master/.gitignore >> .gitignore
+
+# 5. Remove extracted archive
 rm -r typescript-npm-starter-master
 echo "Done !"
 echo ""
