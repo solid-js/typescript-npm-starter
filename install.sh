@@ -13,6 +13,7 @@ if [ ! "$inside_git_repo" ]; then
 fi
 
 # Init git repo so first hooked commit works
+echo ""
 echo "Initializing git repo..."
 touch test
 git add test
@@ -45,8 +46,8 @@ rm -rf typescript-npm-starter-master/doc
 mv typescript-npm-starter-master/* ./
 
 # 4. Add .npmignore and .gitignore content without overriding
-echo "---" >> .npmignore && cat typescript-npm-starter-master/.npmignore >> .npmignore
-echo "---" >> .gitignore && cat typescript-npm-starter-master/.gitignore >> .gitignore
+echo "# -- typescript-npm-starter" >> .npmignore && cat typescript-npm-starter-master/.npmignore >> .npmignore
+echo "# -- typescript-npm-starter" >> .gitignore && cat typescript-npm-starter-master/.gitignore >> .gitignore
 
 # 5. Remove extracted archive
 rm -r typescript-npm-starter-master
