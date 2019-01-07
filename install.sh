@@ -28,6 +28,7 @@ rm -rf typescript-npm-starter-master/LICENSE
 rm -rf typescript-npm-starter-master/install.sh
 rm -rf typescript-npm-starter-master/doc
 mv typescript-npm-starter-master/* ./
+mv typescript-npm-starter-master/.npmignore .npmignore
 cat typescript-npm-starter-master/.gitignore >> .gitignore
 rm -r typescript-npm-starter-master
 echo "Done !"
