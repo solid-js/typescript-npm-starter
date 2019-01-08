@@ -57,10 +57,17 @@ log('Initialising documentation ...');
 exec('node node_modules/docsify-cli/bin/docsify init -l doc');
 log('Done !\n');
 
+// Inject doc URI and made by on Readme file
+const documentationURI = require('./tools/repo-props').getDocumentationURI();
+if (documentationURI != null)
+{
+	exec(`echo "\n\n### [Online documentation](${documentationURI})" >> README.md`);
+}
+exec(`echo "\n\n_[Made with Solid-JS](https://github.com/solid-js/typescript-npm-starter/)_" >> README.md`);
+
 // Clean
 exec('rm -f setup.js');
 exec('rm -rf src/lib/');
-exec('rm -rf TODO.md');
 exec('echo "console.log(\'Hello World !\')" > src/index.ts');
 
 // And show doc
