@@ -37,8 +37,8 @@
 		// --------------------------------------------------------------------- ERRORS
 
 		// Report error on unused locals and parameters
-		"noUnusedLocals": false,
-		"noUnusedParameters": false,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
 
 		// Report error on missing return or fall through cases in switch
 		"noImplicitReturns": true,
