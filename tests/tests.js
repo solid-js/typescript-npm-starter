@@ -5,7 +5,7 @@
 const assert = require('assert');
 
 // const myLib = require('../dist/index')
-
+/*
 describe('Main test', () =>
 {
 	it('Should test this', done =>
@@ -15,3 +15,4 @@ describe('Main test', () =>
 		done();
 	});
 });
+*/

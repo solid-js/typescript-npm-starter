@@ -1,17 +1,19 @@
 # Installation - Quick start
 
 
-### Create a new repository
+### Create a new Git repository
 
-Create a new repo on GitHub and clone it into a new folder. The trunk folder should be nammed as your package name.
+Create a [new repo on GitHub](https://github.com/new) and clone it into a new folder. The trunk folder should be nammed as your package name.
 
 **Note :** Everything will work with any other Git solution but publishing documentaiton to GitHub pages will be unavailable. If you do not want to publish as an open-source package, you can also just create an empty Git repository with `git init`
 
-### Install archive
+### Install with npm
 
-Open a new terminal, `cd` to the Git folder and run this line :
+Open a new terminal, `cd` into the Git folder and run this command :
+```sh
+npm init solid-typescript-lib
+```
 
-`curl https://raw.githubusercontent.com/solid-js/typescript-npm-starter/master/install.sh | sh`
 
 ### Setup package
 
@@ -19,4 +21,4 @@ Follow instructions and run `node setup` if you want a classic public NPM packag
 
 ### Files
 
-You should see this [architecture](install/files-and-folders.md)
+You should see this [architecture](install/files-and-folders.md) installed.

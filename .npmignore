@@ -4,7 +4,7 @@ node_modules/
 src/
 
 # Do not send docs to NPM, they are on gh-pages branch and auto-generated
-docs/
+doc/
 
 # Do not send tools and unit tests to NPM, devs just want to use the lib
 tools/

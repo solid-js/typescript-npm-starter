@@ -8,6 +8,9 @@ const { log, exec, error, inRealPackage } = require('./cli');
 const fs = require('fs');
 const path = require('path');
 
+// If we need a fast compile for dev
+const quickCompile = process.argv[2] == "quick-compile";
+
 // Utility to recursively change files extensions into a folder
 function recursiveChangeExtension (dir, from, to)
 {
@@ -30,14 +33,23 @@ function recursiveChangeExtension (dir, from, to)
 	});
 }
 
-[
+
+let compileProfiles = [
 	// Compile ES modules with tsconfig.module.json and rename all files to .mjs files
 	['Compiling Typescript to ES modules', 'tsc -p tsconfig.module.json', '.mjs'],
 
 	// Compile Common JS modules with default tsconfig and keep .js files
 	['Compiling Typescript to Common JS modules', 'tsc'],
+];
 
-].map( el =>
+// If we need a fast compile, remove ES Modules compilation
+if (quickCompile)
+{
+	compileProfiles = [ compileProfiles[1] ];
+}
+
+// Compile all selected profiles
+compileProfiles.map( el =>
 {
 	log(`${el[0]} ...`, true, true);
 	try

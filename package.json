@@ -22,10 +22,10 @@
     "build": "node tools/build",
     "?test": "echo Run unit tests on compiled files.",
     "test": "mocha tests/tests.js",
-    "?dev" : "echo Use dev.js to work on your lib before it's testable.",
-    "dev" : "npm run build --silent && node tests/dev",
-    "?check" : "echo Clean, build and run tests.",
-    "check" : "npm run clean --silent && npm run build --silent && npm run test --silent",
+    "?dev": "echo Use dev.js to work on your lib before it's testable.",
+    "dev": "npm run build --silent quick-compile && node tests/dev",
+    "?check": "echo Clean, build and run tests.",
+    "check": "npm run clean --silent && npm run build --silent && npm run test --silent",
     "2-------------------------------------": " PACKAGE TOOLS ",
     "?clean": "echo Remove all generated files like compiled JS files and typescript definitions.",
     "clean": "rm -rf dist/ && mkdir -p dist/",
@@ -35,7 +35,10 @@
     "increment": "node tools/increment",
     "3-------------------------------------": " DOCUMENTATION ",
     "?doc": "echo Start documentation server.",
-    "doc": "docsify serve doc"
+    "doc": "docsify serve doc",
+    "4-------------------------------------": " PUBLISH ",
+    "?publish": "echo Publish new version on Git / NPM and update documentation.\nUsage : npm run publish (patch|minor|major) \"commit message\" ",
+    "publish": "node tools/publish"
   },
   "husky": {
     "hooks": {
