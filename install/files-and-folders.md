@@ -17,7 +17,7 @@ Javascript compiled files will be deployed here. This will only include `*.js` a
 
 ### src/
 
-[Typescript](quide/typescript.md) sources, compiled to `dist/`.
+[Typescript](guide/typescript.md) sources, compiled to `dist/`.
 
 [$](guide/npm-scripts.md) `npm run build` to build Typescript sources to Javascript files.
 
@@ -35,3 +35,8 @@ Javascript compiled files will be deployed here. This will only include `*.js` a
 ### tools/
 
 Here are stored utility scripts and hooks. Feel free to explore !
+
+
+### tsconfig.json
+
+They are [Typescript configuration](guide/typescript.md) files. Defaults are fine to get started.

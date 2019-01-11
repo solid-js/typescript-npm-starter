@@ -7,36 +7,63 @@ Type `npm run help` to show every available commands.
 
 ### Build & test
 Compile [typescript](guide/typescript.md) sources to JS files and typescript definitions.
-<br/>`npm run build`
+```bash
+npm run build
+```
 
 Run unit [tests](guide/tests.md) on compiled files.
-<br/>`npm run test`
+```bash
+npm run test
+```
 
 Use [dev.js](guide/tests.md) to work on your lib before it's testable.
-<br/>`npm run dev`
+```bash
+npm run dev
+```
 
 Clean, build and run tests.
-<br/>`npm run check`
+```bash
+npm run check
+```
 
 
 ### Package tools
 
 Remove all generated files like compiled JS files and typescript definitions.
-<br/>`npm run clean`
+```bash
+npm run clean
+```
 
 Remove and re-install all node modules.
-<br/>`npm run reinstall`
+```bash
+npm run reinstall
+```
 
-[Increment package.json](guide/publishing.md) version with semver argument (major|minor|patch). Default is patch.
-<br/>`npm run increment $semver`
+Increment package.json version with semver argument (major|minor|patch). Default is patch.
+```bash
+npm run increment (patch|minor|major)
+```
 
 - ex : `npm run increment` to upgrade `package.json` version from `1.2.7` to `1.2.8`.
 - ex : `npm run increment minor` to upgrade `package.json` version from `1.2.7` to `1.3.0`.
+
+
+### Publishing
+
+By default, Git Hooks are installed so the workflow is Git controlled. But you can still publish with this one-liner :
+```bash
+npm run publish (patch|minor|major) "commit message"
+```
+
+- ex : `npm run publish patch "Whoopsy, forgot this"`
+- ex : `npm run publish major "First stable release"`
 
 
 
 ### Documentation
 
 Start [documentation](guide/documentation.md) server.
-<br/>`npm run doc`
+```bash
+npm run doc
+```
 

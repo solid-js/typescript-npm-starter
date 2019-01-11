@@ -11,5 +11,4 @@
   - [Typescript](guide/typescript.md)
   - [Tests and dev](guide/tests.md)
   - [Documentation](guide/documentation.md)
-  - [Ignores files](guide/ignore.md)
   - [Publishing](guide/publishing.md)
