@@ -3,7 +3,9 @@
 
 ### Create a new Git repository
 
-Create a [new repo on GitHub](https://github.com/new) and clone it into a new folder. The trunk folder should be nammed as your package name.
+First, create a [new repo on GitHub](https://github.com/new) and clone it into a new folder.
+
+?> The trunk folder should be nammed as your package name.
 
 **Note :** Everything will work with any other Git solution but publishing documentaiton to GitHub pages will be unavailable. If you do not want to publish as an open-source package, you can also just create an empty Git repository with `git init`
 
