@@ -28,7 +28,9 @@ catch (e) { error(e) }
 // Add every sources files
 try
 {
-	exec(`git add src/* doc/* tests/* README.md LICENSE .gitignore .npmignore package.json`, { stdio: [0, 1, 2] });
+	inRealPackage()
+	? exec(`git add src/* doc/* tests/* README.md LICENSE .gitignore .npmignore package.json`, { stdio: [0, 1, 2] })
+	: exec(`git add --all`, { stdio: [0, 1, 2] })
 }
 catch (e) {}
 
