@@ -26,10 +26,12 @@ try
 catch (e) { error(e) }
 
 // Add every sources files
-exec(`git add src/* doc/* tests/* README.md LICENSE .gitignore .npmignore package.json`);
+exec(`git add src/* doc/* tests/* README.md LICENSE .gitignore .npmignore package.json`, true);
+
 
 // Commit with message and commit hook
-exec(`git commit -m"${message}"`);
+exec(`git commit -m"${message}"`, true);
+process.exit();
 
 // And then push and push hook
-exec(`git push`);
+exec(`git push`, {cwd: process.cwd()});

@@ -5,6 +5,7 @@
  */
 
 const { log, exec, error, inRealPackage } = require('./cli');
+const chalk = require('chalk');
 const fs = require('fs');
 const path = require('path');
 
@@ -52,18 +53,21 @@ if (quickCompile)
 compileProfiles.map( el =>
 {
 	log(`${el[0]} ...`, true, true);
+	let ee;
 	try
 	{
 		// Compile with tsc
-		exec(el[1], {shell: true, stdio: [0, 1, 2]});
+		exec(el[1], {shell: true, stdio: []});
 
 		// Rename extensions if needed
 		(2 in el) && recursiveChangeExtension('dist/', '.js', el[2]);
 	}
 	catch (e)
 	{
-		console.log('');
-		console.error(e);
+		// Show error message and stop script
+		log(` ${chalk.red('Error !')}\n\n`, false, true);
+		console.log( e.stdout.toString() );
+		console.error( e.stderr.toString() );
 		process.exit(1);
 	}
 	log(` Done !\n`, false, true);
