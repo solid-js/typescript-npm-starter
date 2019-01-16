@@ -26,12 +26,22 @@ try
 catch (e) { error(e) }
 
 // Add every sources files
-exec(`git add src/* doc/* tests/* README.md LICENSE .gitignore .npmignore package.json`, true);
-
+try
+{
+	exec(`git add src/* doc/* tests/* README.md LICENSE .gitignore .npmignore package.json`, { stdio: [0, 1, 2] });
+}
+catch (e) {}
 
 // Commit with message and commit hook
-exec(`git commit -m"${message}"`, true);
-process.exit();
+try
+{
+	exec(`git commit -m"${message}"`, { stdio: [0, 1, 2] });
+}
+catch (e) {}
 
 // And then push and push hook
-exec(`git push`, {cwd: process.cwd()});
+try
+{
+	exec(`git push`, { stdio: [0, 1, 2] });
+}
+catch (e) {}
