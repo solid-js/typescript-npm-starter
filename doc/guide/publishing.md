@@ -23,26 +23,28 @@ Thanks to Git Hooks, the workflow is Git controlled.
 
 ?> This will create a new tag so this version is identifiable on GitHub and NPM clearly.
 
-?> This will publish your library to NPM.
+?> This will release your library to NPM.
 
 
-### Quicker publish
+### Quicker publishing
 
 Or simply run [this command](guide/npm-scripts?id=publishing) to add / commit / push in one line :
 ```bash
-npm run publish (patch|minor|major) "commit message"
+npm run release (patch|minor|major) "commit message"
 ```
 All hooks will be launched accordingly so compilation / unit tests / documentation publishing will be done.
+
+
+### Pushing work in progress
+
+To publish work in progress to Git, without tests and releasing to NPM :
+
+```bash
+npm run wip "commit message"
+```
 
 
 ### NPM auto-publishing
 
 To disable auto-publishing to NPM when pushing to Git, create an empty `.nopublish` file.
 <br>`npm publish` will still work but will have to be called manually.
-
-
-### Disabling hooks
-
-If you want to commit or push a not stable version of the code, add `--no-verify` at the end of your git commands :
-- ex : `git commit -m"Work in progress" --no-verify`
-- ex : `git push --no-verify`
