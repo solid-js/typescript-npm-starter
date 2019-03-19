@@ -33,7 +33,7 @@ Create [clean documentations](https://solid-js.github.io/typescript-npm-starter/
 
 ## Integrated unit testing
 
-Create your lib with Unit tests and be sure that a new version will not break.
+Create your lib with unit tests and be sure that a new version will not break.
 Unis tests are run with [Mocha](https://mochajs.org/)
 
 ## Publication process
