@@ -12,7 +12,7 @@ if [ ! "$inside_git_repo" ]; then
 	exit 1;
 fi
 
-# Init git repo so first hooked commit works
+# Init repo to check if everything is alright with git
 echo ""
 echo "Initializing git repo..."
 touch test

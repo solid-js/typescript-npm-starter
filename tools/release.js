@@ -55,20 +55,22 @@ try
 }
 catch (e) {}
 
-// Add --no-verify argument if we are publishing Work In Progress.
-// Will disable all hooks
-const noVerify = (isWip ? ' --no-verify' : '')
+// Pre-commit hook if this is not work in progress
+if ( !isWip ) require('./pre-commit');
 
 // Commit with message and commit hook
 try
 {
-	exec(`git commit -m"${message}"${noVerify}`, { stdio: [0, 1, 2] });
+	exec(`git commit -m"${message}"`, { stdio: [0, 1, 2] });
 }
 catch (e) {}
+
+// Pre-push hook if this is not work in progress
+if ( !isWip ) require('./pre-push');
 
 // And then push and push hook
 try
 {
-	exec(`git push${noVerify}`, { stdio: [0, 1, 2] });
+	exec(`git push`, { stdio: [0, 1, 2] });
 }
 catch (e) {}

@@ -1,18 +1,12 @@
 /**
- * This git hook will be executed before each push.
+ * Equivalent to pre-push git hook.
+ * Is called by release.js
+ *
  * 1. Will generate and publish doc to github if any doc related file has been updated.
  * 2. Will publish to npm if package.json contains a name field
  */
 
 const { log, exec, inRealPackage } = require('./cli');
-
-// ----------------------------------------------------------------------------- HOOK
-
-// Checking if this is hooked from "git push --tags"
-// If this is, do not continue to avoid infinite git hook loop.
-// ( tags are pushed just bellow and this script is triggered by git push )
-const huskyStdIn = process.env['HUSKY_GIT_STDIN'] || '';
-if (huskyStdIn.indexOf('refs/tags/') == 0) return;
 
 // ----------------------------------------------------------------------------- PUBLISH DOC
 

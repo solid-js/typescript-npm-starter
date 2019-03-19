@@ -1,5 +1,7 @@
 /**
- * This git hook will be executed before each commit.
+ * Equivalent to pre-commit git hook.
+ * Is called by release.js.
+ *
  * 1. Will ask for package version increment if package version has not been changed manually
  * 2. Will clean and build JS and d.ts files
  * 3. Will run tests and halt commit if any fails

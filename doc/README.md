@@ -1,6 +1,6 @@
 # Typescript NPM Starter
 
-Smart starter for NPM libraries with Typescript sources, integrated unit testing, Git hooks and Markdown documentation.
+Smart starter for NPM libraries with Typescript sources, integrated unit testing, release scripts, and Markdown documentation.
 
 ## Requirements
 
@@ -34,14 +34,14 @@ Create [clean documentations](https://solid-js.github.io/typescript-npm-starter/
 Create your lib with Unit tests and be sure that a new version will not break.
 Unis tests are run with [Mocha](https://mochajs.org/)
 
-## Git Hooks
+## Publication process
 
-Git hooks pre-configured with [husky](https://github.com/typicode/husky) :
-- Stop commit if package.json version has not been updated.
-- Create a new tag for each commited version.
-- Build and run tests before each commit to ensure library integrity.
-- Push new doc automatically to github.io when any doc file has changed.
-- Automatically publish to NPM when pushing to Git.
+Shipped with scripts to ease publication process :
+- One command to publish work in progress to Git
+- One command to release a new version to NPM
+- Push new doc automatically to github.io when any doc file has changed
+- Will prevent bugs by running unit tests before each release
+- Manage versions easily
 
 ---
 

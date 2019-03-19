@@ -1,38 +1,26 @@
 # Publishing
 
-To publish your library to NPM, use your classic Git workflow.
-Thanks to Git Hooks, the workflow is Git controlled.
-
-### Git controlled version
-
-**1. New version**. First, you will need to create a new version by [incrementing package.json version](guide/npm-scripts.md?id=package-tools).
-<br>`npm run increment (patch|minor|major)`
-
-**2. Add** your new files
-<br>`git add --all` is fine thanks to .gitignore file.
-
-**3. Commit** your feature
-<br>`git commit -m"my commit message"`
-
-?> This will [compile](guide/typescript.md) and run [unit tests](guide/tests.md). If any tests fails, commit will be refused.
-
-**4. Push** your modifications to GitHub
-<br>`git push`
-
-?> This will publish [documentation](guide/documentation.md) if there are any changes.
-
-?> This will create a new tag so this version is identifiable on GitHub and NPM clearly.
-
-?> This will release your library to NPM.
+To publish your library to NPM, simply use the following script.
+No need to manually use Git commands.
 
 
 ### Quicker publishing
 
-Or simply run [this command](guide/npm-scripts?id=publishing) to add / commit / push in one line :
+Publish code and documentation with [this command](guide/npm-scripts?id=publishing) :
 ```bash
 npm run release (patch|minor|major) "commit message"
 ```
-All hooks will be launched accordingly so compilation / unit tests / documentation publishing will be done.
+
+**It will :**
+1. Increment package.json version number
+2. Stage changed files to Git
+3. Build and run unit tests, this will prevent publishing in case of failure
+4. Add a tag of this version to keep track of releases
+5. Commit
+6. Publish doc if there are any changes detected
+7. Push code and tags to Git then publish to NPM
+
+?> No need to use Git commands, this command will handle it for you !
 
 
 ### Pushing work in progress
@@ -46,5 +34,5 @@ npm run wip "commit message"
 
 ### NPM auto-publishing
 
-To disable auto-publishing to NPM when pushing to Git, create an empty `.nopublish` file.
+To disable auto-publishing to NPM when releasing a new version, create an empty `.nopublish` file.
 <br>`npm publish` will still work but will have to be called manually.

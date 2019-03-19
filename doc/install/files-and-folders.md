@@ -34,7 +34,7 @@ Javascript compiled files will be deployed here. This will only include `*.js`, 
 
 ### tools/
 
-Here are stored utility scripts and hooks. Feel free to explore !
+Here are stored utility scripts. Feel free to explore !
 
 
 ### tsconfig.json
