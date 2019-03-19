@@ -37,8 +37,7 @@ Since every files are just Markdown files, a good way to learn is to check sourc
 
 ### Publishing
 
-To publish your documentation on GitHub pages (github.io), just add and push files to your public GitHub repo !
-<br>Git Hooks will handle the rest for you.
+To publish your documentation on GitHub pages (github.io), [release a new version](guide/publishing.md) of your lib. The release script will handle this for you and upload new files to github.io if there are any changes.
 
 
 ### Documentation URL

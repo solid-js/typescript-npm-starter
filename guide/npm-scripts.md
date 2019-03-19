@@ -48,16 +48,30 @@ npm run increment (patch|minor|major)
 - ex : `npm run increment minor` to upgrade `package.json` version from `1.2.7` to `1.3.0`.
 
 
-### Publishing
+### Release a working version
 
-By default, Git Hooks are installed so the workflow is Git controlled. But you can still publish with this one-liner :
+[Publish code](guide/publishing.md) and documentation with this one-liner :
 ```bash
-npm run publish (patch|minor|major) "commit message"
+npm run release (patch|minor|major) "commit message"
 ```
 
-- ex : `npm run publish patch "Whoopsy, forgot this"`
-- ex : `npm run publish major "First stable release"`
+- ex : `npm run release patch "Whoopsy, forgot this"`
+- ex : `npm run release major "First stable release"`
 
+
+### Pushing work in progress to Git
+
+If you need to push work in progress to git, but without tests, documentation and NPM publishing :
+
+```bash
+npm run wip "Working on this feature"
+```
+
+Commit message is not mandatory :
+
+```bash
+npm run wip
+```
 
 
 ### Documentation
