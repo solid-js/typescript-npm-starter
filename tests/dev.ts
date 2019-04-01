@@ -4,5 +4,5 @@
  * Useful when trying to get something working before it's testable.
  */
 
- const myLib = require('../dist/index');
+ import * as MyLib from '../dist/index';
  // ...
