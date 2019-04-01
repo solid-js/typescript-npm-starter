@@ -65,6 +65,9 @@ if (documentationURI != null)
 }
 exec(`echo "\n\n_[Made with Solid-JS](https://github.com/solid-js/typescript-npm-starter/)_" >> README.md`);
 
+// Add npmrc to silent commands
+exec(`echo "\nloglevel = silent" >> .npmrc`);
+
 // Clean
 exec('rm -f setup.js');
 exec('rm -rf src/lib/');
