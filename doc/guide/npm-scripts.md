@@ -26,6 +26,11 @@ Clean, build and run tests.
 npm run check
 ```
 
+Compress compiled code with Terser as a production release, then show compressed bundle size.
+```bash
+npm run compress
+```
+
 
 ### Package tools
 
