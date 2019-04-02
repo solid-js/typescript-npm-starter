@@ -1,6 +1,7 @@
 
 * Typescript NPM Starter
   - [Read me first](README.md)
+  - [Used by](used-by.md)
 
 * Installation
   - [Quick start](install/quick-start.md)
