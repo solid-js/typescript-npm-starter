@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # How to install this script 
-# curl https://raw.githubusercontent.com/solid-js/typescript-npm-starter/master/install.sh | sh
+# curl https://raw.githubusercontent.com/solid-js/classic-npm-starter/master/install.sh | sh
 
 # Check if git repo was already setup
 inside_git_repo="$(git rev-parse --is-inside-work-tree 2>/dev/null)"
 if [ ! "$inside_git_repo" ]; then
 	tput bold && tput setaf 7 && tput setab 1;
-	>&2 echo " Typescript-npm-starter needs to be installed in a git repository to be correctly configured. "
+	>&2 echo " Classic-npm-starter needs to be installed in a git repository to be correctly configured. "
 	>&2 echo " Please setup git repo in this folder, before launching this install script. ";
 	exit 1;
 fi
@@ -24,8 +24,8 @@ echo "Done !"
 
 # Download archive as zip file
 echo ""
-echo "Downloading typescript-npm-starter archive..."
-curl -L -sS https://github.com/solid-js/typescript-npm-starter/archive/master.zip > archive.zip
+echo "Downloading classic-npm-starter archive..."
+curl -L -sS https://github.com/solid-js/classic-npm-starter/archive/master.zip > archive.zip
 echo "Done !"
 echo ""
 
@@ -37,20 +37,20 @@ unzip -q archive.zip
 rm archive.zip
 
 # 2. Clean unnecessary files
-rm -rf typescript-npm-starter-master/README.md
-rm -rf typescript-npm-starter-master/LICENSE
-rm -rf typescript-npm-starter-master/install.sh
-rm -rf typescript-npm-starter-master/doc
+rm -rf classic-npm-starter-master/README.md
+rm -rf classic-npm-starter-master/LICENSE
+rm -rf classic-npm-starter-master/install.sh
+rm -rf classic-npm-starter-master/doc
 
 # 3. Move all files and folders from archive into this directory
-mv typescript-npm-starter-master/* ./
+mv classic-npm-starter-master/* ./
 
 # 4. Add .npmignore and .gitignore content without overriding
-echo "# -- typescript-npm-starter" >> .npmignore && cat typescript-npm-starter-master/.npmignore >> .npmignore
-echo "# -- typescript-npm-starter" >> .gitignore && cat typescript-npm-starter-master/.gitignore >> .gitignore
+echo "# -- classic-npm-starter" >> .npmignore && cat classic-npm-starter-master/.npmignore >> .npmignore
+echo "# -- classic-npm-starter" >> .gitignore && cat classic-npm-starter-master/.gitignore >> .gitignore
 
 # 5. Remove extracted archive
-rm -r typescript-npm-starter-master
+rm -r classic-npm-starter-master
 echo "Done !"
 echo ""
 

@@ -1,50 +1,30 @@
 {
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "",
+  "module": "",
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^10.12.11",
     "@zouloux/semver-increment": "^0.2.0",
     "docsify": "^4.8.6",
     "docsify-cli": "^4.3.0",
-    "filesize": "^4.1.2",
     "gh-pages": "^1.2.0",
-    "mocha": "^5.2.0",
-    "npm-scripts-info": "^0.3.9",
-    "terser": "^3.17.0",
-    "typescript": "^3.2.1"
+    "npm-scripts-info": "^0.3.9"
   },
   "scripts": {
     "help": "node tools/help.js",
-    "1-------------------------------------": " BUILD & TEST",
-    "?build": "echo Compile typescript sources to JS files and typescript definitions.",
-    "build": "node tools/build",
-    "?test": "echo Run unit tests on compiled files.",
-    "test": "mocha tests/tests.js",
-    "?dev": "echo Use dev.ts to work on your lib before it's testable.",
-    "dev": "npm run build quick-compile && tsc tests/dev.ts && node tests/dev.js",
-    "?check": "echo Clean, build and run tests.",
-    "check": "npm run clean && npm run build && npm run test",
-    "2-------------------------------------": " PACKAGE TOOLS ",
-    "?clean": "echo Remove all generated files like compiled JS files and typescript definitions.",
-    "clean": "rm -rf dist/ && mkdir -p dist/",
+    "1-------------------------------------": " PACKAGE TOOLS ",
     "?reinstall": "echo Remove and re-install all node modules.",
     "reinstall": "rm -rf node_modules/ package-lock.json && npm i",
-    "?increment": "echo Increment package.json version with semver argument (major|minor|patch). Default is patch.",
-    "increment": "node tools/increment",
-    "3-------------------------------------": " DOCUMENTATION ",
+    "2-------------------------------------": " DOCUMENTATION ",
     "?doc": "echo Start documentation server.",
     "doc": "docsify serve doc",
     "publish-doc": "gh-pages -d doc",
-    "4-------------------------------------": " RELEASE ",
+    "3-------------------------------------": " RELEASE ",
     "?release": "echo Publish new version on Git / NPM and update documentation.\nUsage : npm run release (patch|minor|major) \"commit message\" ",
     "release": "node tools/release",
     "?wip": "echo Push a work in progress to Git. Nothing will be tested or published.",
     "wip": "node tools/release wip"
   },
   "directories": {
-    "doc": "doc",
-    "test": "tests"
+    "doc": "doc"
   }
 }

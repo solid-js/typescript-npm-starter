@@ -37,33 +37,7 @@ if ( inRealPackage() )
 	}	
 }
 
-// ----------------------------------------------------------------------------- 2. BUILD
-
-// Clean and build sources. Halt on error.
-try
-{
-	exec(`npm run clean && npm run build`, true);
-}
-catch (e)
-{
-	error(`Error while building sources.\nCommit aborted.`);
-}
-
-// ----------------------------------------------------------------------------- 3. TESTS
-
-// Run tests. Halt on error.
-try
-{
-	log(`Running tests ...`);
-	exec(`npm run test`, true);
-	log(`Done !\n`);
-}
-catch (e)
-{
-	error(`Error while running tests.\nCommit aborted.`);
-}
-
-// ----------------------------------------------------------------------------- 4. VERSION TAG
+// ----------------------------------------------------------------------------- 2. VERSION TAG
 
 // Create a tag only if we are on a real package here (and not typescript-npm-starter)
 if ( inRealPackage() )

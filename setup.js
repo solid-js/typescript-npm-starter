@@ -63,16 +63,14 @@ if (documentationURI != null)
 {
 	exec(`echo "\n\n### [Online documentation](${documentationURI})" >> README.md`);
 }
-exec(`echo "\n\n_[Made with Solid-JS](https://github.com/solid-js/typescript-npm-starter/)_" >> README.md`);
+exec(`echo "\n\n_[Made with Solid-JS](https://github.com/solid-js/classic-npm-starter/)_" >> README.md`);
 
 // Add npmrc to silent commands
 exec(`echo "\nloglevel = silent" >> .npmrc`);
 
 // Clean
 exec('rm -f setup.js');
-exec('rm -rf src/lib/');
-exec('echo "console.log(\'Hello World !\')" > src/index.ts');
 
 // And show doc
 log('Available npm scripts : (npm run help)\n');
-exec('npm run help --silent', true);
+exec('npm run help', true);

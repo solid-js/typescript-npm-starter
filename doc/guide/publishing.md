@@ -14,11 +14,10 @@ npm run release (patch|minor|major) "commit message"
 **It will :**
 1. Increment package.json version number
 2. Stage changed files to Git
-3. Build and run unit tests, this will prevent publishing in case of failure
-4. Add a tag of this version to keep track of releases
-5. Commit
-6. Publish doc if there are any changes detected
-7. Push code and tags to Git then publish to NPM
+3. Add a tag of this version to keep track of releases
+4. Commit
+5. Publish doc if there are any changes detected
+6. Push code and tags to Git then publish to NPM
 
 ?> No need to use Git commands, this command will handle it for you !
 

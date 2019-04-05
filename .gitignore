@@ -1,7 +1,4 @@
 
-# typescript-npm-starter gitignore
+# classic-npm-starter gitignore
 .DS_Store
 node_modules/
-dist/
-docs/
-tests/dev.js

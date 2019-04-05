@@ -13,7 +13,7 @@ First, create a [new repo on GitHub](https://github.com/new) and clone it into a
 
 Open a new terminal, `cd` into the Git folder and run this command :
 ```sh
-npm init solid-typescript-lib
+npm init solid-classic-lib
 ```
 
 

@@ -31,7 +31,7 @@ npm run doc
 ### Examples
 
 Since every files are just Markdown files, a good way to learn is to check sources of other Docsify projects :
-- This documentation's [sources](https://github.com/solid-js/typescript-npm-starter/tree/master/doc)
+- This documentation's [sources](https://github.com/solid-js/classic-npm-starter/tree/master/doc)
 - On any page of [Docsify documentation](https://docsify.js.org/#/more-pages), click the **Edit Document** button to see the source code.
 
 
